@@ -1,7 +1,9 @@
 FROM ollama/ollama
 
-# Preload your models during image build
-RUN ollama pull llama3.2:1b && \
-    ollama pull mxbai/embed-large
-
-CMD ["ollama", "serve"]
+# Start Ollama server in background & preload models, then run normally
+CMD bash -c "\
+  ollama serve & \
+  sleep 2 && \
+  ollama pull llama3.2:1b && \
+  ollama pull mxbai/embed-large && \
+  wait"
