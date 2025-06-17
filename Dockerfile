@@ -16,5 +16,5 @@ CMD bash -c "\
   ollama serve & \
   sleep 5 && \
   ollama pull llama3.2:1b && \
-  ollama pull mxbai/embed-large && \
+  ollama pull mxbai-embed-large && \
   wait"
