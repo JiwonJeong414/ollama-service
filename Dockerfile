@@ -13,7 +13,7 @@ EXPOSE 11434
 
 # Pull models and start Ollama
 CMD bash -c "\
-  ollama serve & \
+  ollama serve --host 0.0.0.0 & \
   sleep 5 && \
   ollama pull llama3.2:1b && \
   ollama pull mxbai-embed-large && \
